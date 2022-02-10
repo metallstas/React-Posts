@@ -1,0 +1,17 @@
+.postList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+button {
+  margin-bottom: 30px;
+  padding: 10px 15px;
+  font-size: 18px;
+  color: #fff;
+  background-color: rgb(78, 78, 78);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
