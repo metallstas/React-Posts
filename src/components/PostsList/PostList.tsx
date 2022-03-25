@@ -1,4 +1,8 @@
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addPost } from '../../redux/actions/postsActions'
+import { IPostsState } from '../../redux/reducer/postsReducer'
+import { IState } from '../../redux/store'
 import { Post } from './Post/Post'
 import cls from './PostList.module.css'
 
@@ -10,8 +14,11 @@ interface IPost {
 }
 
 export const PostList = () => {
-  const [posts, setPosts] = useState([])
+  // const [posts, setPosts] = useState([])
   const [limit, setLimit] = useState<number>(5)
+
+  const posts = useSelector((state: IState) => state.postsReducer.posts)
+  const dispatch = useDispatch()
 
   const getPosts = async () => {
     const responseUsers = await fetch(
@@ -30,7 +37,8 @@ export const PostList = () => {
       return { ...post, autor: userById }
     })
     console.log(newPosts)
-    setPosts(newPosts)
+    // setPosts(newPosts)
+    dispatch(addPost(newPosts))
   }
 
   const showNextPosts = () => {
