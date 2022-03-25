@@ -5,7 +5,6 @@ export interface IPost {
   autor: {name: string};
 } 
 
-
 export interface IPostsState {
   posts: IPost[];
 }
